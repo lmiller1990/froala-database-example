@@ -19,6 +19,7 @@ export const Editor: React.FC<{
         value={title}
         onInput={(e) => setTitle(e.currentTarget.value)}
         className="border border-slate-300 rounded-lg p-2 w-full mb-4"
+        placeholder="Enter post title..."
       />
 
       <FroalaEditorComponent model={html} onModelChange={handleModelChange} />
