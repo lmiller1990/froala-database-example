@@ -12,5 +12,12 @@ export const ShowArticle: React.FC<{}> = (props) => {
     articlesService.get(params.id!).then(setArticle);
   }, []);
 
-  return article && <div>{article.title}</div>;
+  return (
+    article && (
+      <div>
+        <h1 className="text-2xl font-bold mb-4 text-center">{article.title}</h1>
+        <p dangerouslySetInnerHTML={{ __html: article.body }} />
+      </div>
+    )
+  );
 };
