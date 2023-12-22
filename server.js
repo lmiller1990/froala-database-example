@@ -13,7 +13,6 @@ app.post("/articles", async (req, res) => {
   const post = {
     title: req.body.title,
     body: req.body.body,
-    description: req.body.description,
   };
 
   await db("articles").insert(post);
@@ -25,7 +24,6 @@ app.put("/articles/:id", async (req, res) => {
   const post = {
     title: req.body.title,
     body: req.body.body,
-    description: req.body.description,
   };
 
   await db("articles").update(post).where("id", "=", req.params.id)
@@ -37,7 +35,7 @@ app.get("/articles/:id", async (req, res) => {
   const article = await db("articles")
     .first()
     .where("id", "=", req.params.id)
-    .select(["id", "title", "description", "body"]);
+    .select(["id", "title", "body"]);
 
   res.json(article);
 });
@@ -46,7 +44,6 @@ app.get("/articles", async (req, res) => {
   const articles = await db("articles").select([
     "id",
     "title",
-    "description",
     "body",
   ]).orderBy("created", "desc");
 
