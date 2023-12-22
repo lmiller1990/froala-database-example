@@ -1,14 +1,17 @@
 # Creating the App
 
+If you are doing it from scratch:
+
 ```sh
 npm create vite@latest froala-react -- --template react-ts
 ```
 
-# Dependencies
+# Getting Started
 
-```
-npm install knex pg express @types/express react-froala-wysiwyg froala-editor body-parser
-```
+- clone the repo
+- `npm install`
+- frontend: `npm run dev`
+- server: `node server.js`
 
 # Database
 
@@ -21,6 +24,12 @@ create table articles (
   created timestamp with time zone default now(),
   body text
 );
+```
+
+Add some data:
+
+```sql
+insert into articles (title, body) values ('Test post', '<p>This is a new post</p>');
 ```
 
 # Config
